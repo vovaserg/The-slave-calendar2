@@ -11,11 +11,9 @@ import java.util.Calendar;
 
 
 public class GetYearGraph {
-    private int month;
     private int dayOfMonth;
     private int day;
     private String smena;
-    private int smPrI;
     private String smPrIN;
 
     public String[] GetMonthGr(int m, int d, String s) {
@@ -24,7 +22,7 @@ public class GetYearGraph {
         day = d;//День Месяца
         smena = s;//Смена в тот день
         String[] smPr = {"12", "4", "8", "B"};//Череда смен
-        smPrI = Arrays.asList(smPr).indexOf(smena);//Тут херня кажись хз.  Индекс смены в массиве
+        int smPrI = Arrays.asList(smPr).indexOf(smena);
         String[] grOnMonth = new String[dayOfMonth];
         for (int i = d; i <= dayOfMonth; i++) {
             grOnMonth[i - 1] = smPr[smPrI];
@@ -55,6 +53,7 @@ public class GetYearGraph {
         //calendar.set(Calendar.MONTH, month);
 
         System.out.println("Month");
+        int month;
         while (true) {
             try {
                 month = Integer.parseInt(read.readLine()) - 1;
